@@ -99,7 +99,7 @@ function Apartments() {
               />
               <FaSearch
                 size={25}
-                style={{ marginTop: "7px", marginLeft: "5px" }}
+                style={{ marginTop: "9px", marginLeft: "5px" }}
                 className="search_icon"
               />
             </form>
