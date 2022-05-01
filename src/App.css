@@ -80,3 +80,7 @@ footer {
   transition: 0.3s ease-in-out;
   margin-left: 15px !important;
 }
+
+.apartment_info {
+  border-radius: 20px !important;
+}

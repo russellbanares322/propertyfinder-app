@@ -116,7 +116,7 @@ function Apartments() {
                 key={apartment.id}
               >
                 <div className="card p-0 overflow-hidden h-100 shadow p-3 bg-light apartment_info">
-                  <h3 className="card-title text-center pt-3">
+                  <h3 className="card-title text-center pt-3 l_text">
                     {apartment.name}
                   </h3>
 
@@ -128,8 +128,10 @@ function Apartments() {
 
                   <br />
                   <div className="card-body">
-                    <h5 className="card-text">{apartment.location}</h5>
-                    <p className="card-text">
+                    <h5 className="card-text l_text underline ">
+                      {apartment.location}
+                    </h5>
+                    <p className="card-text l_text">
                       ₱{apartment.price.toLocaleString()}
                     </p>
                     <Link to={`/apartments/${apartment.id}`}>
