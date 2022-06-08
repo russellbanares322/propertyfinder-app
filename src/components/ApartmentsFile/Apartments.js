@@ -69,7 +69,7 @@ function Apartments() {
 
   return (
     <div className="container-fluid apartment_bg pb-5">
-      <h1 className="text-center pt-5 l_title">Available Apartments</h1>
+      <h1 className="text-center pt-5 l_title">Available Property</h1>
       <div className="col-sm-12 p-3 mb-5 mt-5 justify-content-center d-flex">
         <div className="row">
           <div className="col-sm-12 p-4 border shadow">
@@ -92,7 +92,7 @@ function Apartments() {
               />
             </form>
             <small className="justify-content-center d-flex pt-4">
-              Search for price, location and apartment name.
+              Search for price, location and property name.
             </small>
           </div>
         </div>

@@ -71,7 +71,7 @@ function App() {
                   to="/apartments"
                   className="nav-link text-dark tips l_text"
                 >
-                  Apartments
+                  Property
                 </Link>
               </li>
             </ul>
