@@ -151,7 +151,48 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="container-fluid mb-1 apartment_bg pt-4 pb-5">
+
+      <h1 className="text-center mt-5 mb-5 l_title pt-4">
+        Available Locations and Apartments
+      </h1>
+      <div className="container-fluid apartment_bg pt-5">
+        <div className="col-sm-7 mx-auto">
+          <ul class="list-group list-group-flush text-center">
+            <li className="list-group-item mt-2 shadow location_text">
+              Cupang
+              <span class="badge rounded-pill text-bg-primary bg-info ml-4">
+                16
+              </span>
+            </li>
+            <li className="list-group-item mt-2 shadow location_text">
+              Poblacion
+              <span class="badge rounded-pill text-bg-primary bg-info ml-4">
+                1
+              </span>
+            </li>
+            <li className="list-group-item mt-2 shadow location_text">
+              Sucat
+              <span class="badge rounded-pill text-bg-primary bg-info ml-4">
+                5
+              </span>
+            </li>
+            <li className="list-group-item mt-2 shadow location_text">
+              Buli
+              <span class="badge rounded-pill text-bg-primary bg-info ml-4">
+                4
+              </span>
+            </li>
+            <li className="list-group-item mt-2 mb-5 shadow location_text">
+              Alabang
+              <span class="badge rounded-pill text-bg-primary bg-info ml-4">
+                20
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="container-fluid mb-1 pt-4 pb-5">
         <h1 className="text-center mt-5 mb-5 l_title">Get in touch</h1>
         <div className="col-sm-12">
           <div className="row">

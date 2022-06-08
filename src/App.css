@@ -35,7 +35,7 @@ footer {
 }
 .card_img {
   transform: scale(1);
-  transition: 0.3s ease-in-out;
+  transition: 0.9s ease-in-out;
 } 
 .card_img:hover {
   transform: scale(1.5);
@@ -83,4 +83,57 @@ footer {
 
 .apartment_info {
   border-radius: 20px !important;
+}
+
+/* ApartmentPagination */
+
+ .paginationBttns {
+   width: 80%;
+   height: 40px;
+   margin-left: 40px;
+   margin-top: 20px;
+    list-style: none;
+   display: flex;
+   justify-content: center;
+ padding-bottom: 60px;
+
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 8px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+}
+.paginationBttns a:hover {
+  background-color: #ffffff;
+ 
+}
+.previousBttn, .nextBttn {
+  text-decoration: none !important;
+}
+.activeBttn {
+  background-color: #ffffff;
+}
+.container_paginate {
+  padding-bottom: 60px;
+}
+
+.location_text {
+  font-weight: bold;
+}
+
+.list_border {
+  border: 1px solid black;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.img_border {
+  border: 1px;
+  box-shadow: rgb(49, 48, 48) 10px 9px,rgb(23,162,184) 20px 20px;
+}
+
+/* ReturnBttn */
+.return_bttn {
+  cursor: pointer;
 }
