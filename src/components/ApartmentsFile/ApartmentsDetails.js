@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { ApartmentsData } from "../ApartmentsData";
+import { ApartmentsData } from "../../ApartmentsDataFile/ApartmentsData";
 import { IoReturnDownBackOutline } from "react-icons/io5";
 
 function ApartmentsDetails() {

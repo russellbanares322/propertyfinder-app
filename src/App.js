@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import "./App.css";
 import About from "./components/About";
-import Apartments from "./components/Apartments";
+import Apartments from "./components/ApartmentsFile/Apartments";
 import Home from "./components/Home";
 import Tips from "./components/Tips";
-
 import { GoThreeBars } from "react-icons/go";
 import { GoX } from "react-icons/go";
-import ApartmentsDetails from "./components/ApartmentsDetails";
+import ApartmentsDetails from "./components/ApartmentsFile/ApartmentsDetails";
 
 function App() {
   const [isToggle, setIsToggle] = useState(false);

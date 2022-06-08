@@ -2,7 +2,7 @@ export const ApartmentsData = [
   {
     id: 1,
     name: "Ricky's Apartment",
-    image: require("./pictures/apartment1.jpg"),
+    image: require("../../src/pictures/apartment1.jpg"),
     description: "An old fashion apartment",
     amenity1: "Basketball Court",
     amenity2: "Rooftop Lab",
@@ -14,7 +14,7 @@ export const ApartmentsData = [
   {
     id: 2,
     name: "Edge's Apartment",
-    image: require("./pictures/apartment2.jpg"),
+    image: require("../../src/pictures/apartment2.jpg"),
     description: "An old fashion apartment",
     amenity1: "Wifi",
     amenity2: "Pool",
@@ -26,7 +26,7 @@ export const ApartmentsData = [
   {
     id: 3,
     name: "McArthur's Apartment",
-    image: require("./pictures/apartment1.jpg"),
+    image: require("../../src/pictures/apartment1.jpg"),
     description: "An old fashion apartment",
     amenity1: "Wifi",
     amenity2: "Pool",
@@ -38,7 +38,7 @@ export const ApartmentsData = [
   {
     id: 4,
     name: "Renxi's Apartment",
-    image: require("./pictures/apartment1.jpg"),
+    image: require("../../src/pictures/apartment1.jpg"),
     description: "An old fashion apartment",
     amenity1: "Wifi",
     amenity2: "Pool",
@@ -50,7 +50,7 @@ export const ApartmentsData = [
   {
     id: 5,
     name: "Germano's Apartment",
-    image: require("./pictures/apartment1.jpg"),
+    image: require("../../src/pictures/apartment1.jpg"),
     description: "Haunted House",
     amenity1: "Wifi",
     amenity2: "Pool",
@@ -62,7 +62,7 @@ export const ApartmentsData = [
   {
     id: 6,
     name: "Germano's Apartment",
-    image: require("./pictures/apartment1.jpg"),
+    image: require("../../src/pictures/apartment1.jpg"),
     description: "Haunted House",
     amenity1: "Wifi",
     amenity2: "Pool",
@@ -74,7 +74,7 @@ export const ApartmentsData = [
   {
     id: 7,
     name: "Germano's Apartment",
-    image: require("./pictures/apartment1.jpg"),
+    image: require("../../src/pictures/apartment1.jpg"),
     description: "Haunted House",
     amenity1: "Wifi",
     amenity2: "Pool",

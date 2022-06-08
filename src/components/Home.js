@@ -14,10 +14,10 @@ function Home() {
       <div className="jumbotron vh-100">
         <img src="" />
         <h1 className="display-4 text-left font-weight-bold text-center mt-5 l_title">
-          Muntinlupa Apartments
+          Property Finds
         </h1>
         <p className="lead text-left text-sm text-center text-dark mt-3 l_text">
-          Affordable and neat apartments for you.
+          Affordable and neat property for you.
         </p>
         <p className="lead text-left text-center">
           <Link
@@ -30,7 +30,7 @@ function Home() {
         </p>
       </div>
       <div className="container-fluid ">
-        <h1 className="text-center mb-5 mt-5 l_title">Featured Apartments</h1>
+        <h1 className="text-center mb-5 mt-5 l_title">Featured Property</h1>
         <div className="col-sm-12">
           <div className="row">
             <div className="col-sm-4">
