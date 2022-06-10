@@ -27,7 +27,7 @@ function ApartmentsDetails() {
 
       {apartment && (
         <>
-          <div className="container ">
+          <div className="container">
             <div className="text-right">
               <button
                 className="btn btn-info"
@@ -71,7 +71,7 @@ function ApartmentsDetails() {
                                   for="exampleInputEmail1"
                                   className="form-label"
                                 >
-                                  Email address
+                                  First Name
                                 </label>
                                 <input
                                   type="email"
@@ -94,19 +94,6 @@ function ApartmentsDetails() {
                                   id="exampleInputPassword1"
                                 />
                               </div>
-                              <div className="mb-3 form-check">
-                                <input
-                                  type="checkbox"
-                                  className="form-check-input"
-                                  id="exampleCheck1"
-                                />
-                                <label
-                                  className="form-check-label"
-                                  for="exampleCheck1"
-                                >
-                                  Check me out
-                                </label>
-                              </div>
                             </form>
                           </div>
                           <div className="col-sm-4">
@@ -116,7 +103,7 @@ function ApartmentsDetails() {
                                   for="exampleInputEmail1"
                                   className="form-label"
                                 >
-                                  Email address
+                                  Last Name
                                 </label>
                                 <input
                                   type="email"
@@ -130,7 +117,7 @@ function ApartmentsDetails() {
                                   for="exampleInputPassword1"
                                   className="form-label"
                                 >
-                                  Password
+                                  Phone
                                 </label>
                                 <input
                                   type="password"
@@ -178,7 +165,7 @@ function ApartmentsDetails() {
                               for="exampleFormControlTextarea1"
                               class="form-label"
                             >
-                              Example textarea
+                              Message to Seller
                             </label>
                             <textarea
                               class="form-control"
@@ -203,16 +190,18 @@ function ApartmentsDetails() {
           <h1 className="card-title text-center pt-5 l_title">
             {apartment.name}
           </h1>
-          <div className="col-sm-12 mt-5">
-            <div className="row">
-              <div className="col-sm-5">
-                <h5>{apartment.description}</h5>
-              </div>
-              <div className="col-sm-7">
-                <img
-                  src={apartment.image}
-                  className="card-img-top img-fluid img_border"
-                />
+          <div className="container">
+            <div className="col-sm-12 mt-5">
+              <div className="row">
+                <div className="col-sm-5">
+                  <h5>{apartment.description}</h5>
+                </div>
+                <div className="col-sm-7">
+                  <img
+                    src={apartment.image}
+                    className="card-img-top img-fluid img_border"
+                  />
+                </div>
               </div>
             </div>
           </div>

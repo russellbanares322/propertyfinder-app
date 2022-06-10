@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ApartmentsData } from "../../ApartmentsDataFile/ApartmentsData";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 import ReactPaginate from "react-paginate";
 
 function Apartments() {
@@ -18,13 +19,18 @@ function Apartments() {
     setPageNumber(selected);
   };
 
+  const [popupContent, setPopupContent] = useState([]);
+  const changeContent = (apartment) => {
+    setPopupContent([apartment]);
+  };
+
   const displayApartments = apartments
     .slice(apartmentsVisited, apartmentsVisited + apartmentsPerPage)
     .filter((apartment) => {
       if (searchTerm === "") {
         return apartments;
       } else if (
-        apartment.name.toLowerCase().includes(searchTerm) ||
+        apartment.name.toString().toLowerCase().includes(searchTerm) ||
         apartment.location.toLowerCase().includes(searchTerm) ||
         apartment.price.toLocaleString().includes(searchTerm)
       ) {
@@ -46,6 +52,9 @@ function Apartments() {
               src={apartment.image}
               className="card-img-top apartment_img pt-2 img-fluid"
               alt="apartments"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              onClick={() => changeContent(apartment)}
             />
 
             <br />
@@ -61,6 +70,42 @@ function Apartments() {
                   View Details
                 </button>
               </Link>
+            </div>
+          </div>
+          {/* Modal */}
+          <div className="container-fluid">
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-xl">
+                <div className="modal-content bg-light">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel"></h5>
+                    <IoClose
+                      size={30}
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    />
+                  </div>
+                  <div className="modal-body">
+                    {popupContent.map((content) => {
+                      return (
+                        <>
+                          <div className="container-fluid">
+                            <img className="img-fluid" src={content.image} />
+                          </div>
+                        </>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -97,9 +142,7 @@ function Apartments() {
           </div>
         </div>
       </div>
-
       {/* Pagination */}
-
       <div className="container container_paginate">
         <div className="row justify-content-center">{displayApartments}</div>
 

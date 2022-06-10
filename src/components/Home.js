@@ -124,7 +124,7 @@ function Home() {
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
               >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-lg">
                   <div className="modal-content">
                     <div className="modal-header">
                       <h5 className="modal-title" id="exampleModalLabel">
@@ -196,12 +196,12 @@ function Home() {
         <h1 className="text-center mt-5 mb-5 l_title">Get in touch</h1>
         <div className="col-sm-12">
           <div className="row">
-            <div className="col-sm-6">
+            <div className="col-sm-6 mt-3">
               <h5>Facebook account: http://samplesomeshitesasda.com</h5>
               <h5>Twitter account: http://samplesomeshitesasda.com</h5>
               <h5>Instagram account: http://samplesomeshitesasda.com</h5>
             </div>
-            <div className="col-sm-6 border-left">
+            <div className="col-sm-5 border-left mt-3">
               <form className="needs-validation" novalidate>
                 <div class="mb-3">
                   <label for="validationCustom01" class="form-label">
@@ -214,18 +214,13 @@ function Home() {
                     aria-describedby="emailHelp"
                   />
                 </div>
-                <div className="form-group">
-                  <textarea
-                    className="form-control"
-                    id="exampleFormControlTextarea1"
-                    rows="3"
-                  ></textarea>
-                </div>
-                <label>We appreciate your feedback.</label>
-                <br />
                 <button type="submit" class="btn btn-info">
-                  Submit
+                  Subscribe
                 </button>
+                <label className="mt-4 ml-4">
+                  Want to get notified if there is new property posted?
+                  Subscribe now!
+                </label>
               </form>
             </div>
           </div>
