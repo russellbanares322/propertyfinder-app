@@ -1,140 +1,68 @@
-@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=VT323&display=swap');
 
-.l_title {
-  font-family: "Fjalla One", sans-serif;
-  letter-spacing: 2px;
-  text-shadow: 0 0 3px #2d94c4;
+* {
+    font-family: 'Poppins';
+
 }
-.l_text {
-  font-family: "Fjalla One", sans-serif;
-  letter-spacing: 1px;
+.delete_icon {
+    cursor: pointer;
 }
-.jumbotron {
-  background-image: url("./pictures/sapmle.jpg");
-  background-size: cover;
-  border-radius: 0% !important;
+.delete_icon:hover {
+    transform: translateY(5px);
+    transition: 0.2s ease-in-out;
 }
-.about:hover, .home:hover, .tips:hover {
-text-decoration:underline !important;
-}
-.nav_style {
-  text-decoration: underline;
-}
-.brand:hover {
- transform: rotateZ(-359deg);
- transition: 0.6s;
-}
-.card_info:hover {
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-footer {
-  text-align: center;
-}
-.figure {
+
+.details_text {
+    display: block;
+  width: 200px;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.card_img {
-  transform: scale(1);
-  transition: 0.9s ease-in-out;
-} 
-.card_img:hover {
-  transform: scale(1.5);
-  border: 1px solid;
-}
-.spml{
-  cursor: pointer;
-}
-.dialog {
-  box-shadow: 0 8px 6px -6px black;
-  position: static;
-  left: 20%;
-  top: 10%;
+.posted_text {
+    font-size: 11px;
 }
 
-.image {
-  width: 300px;
+.comment_input {
+    box-shadow: rgb(0, 0, 0) 7px 8px, rgb(78, 76, 76) 13px 15px;
 }
-.modl {
-  width: 750px !important;
-  margin: auto !important;
-}
-
-.apartment_bg {
-  background-image: linear-gradient(to top, #a4b0d2, #d5d6e8);
-}
-.apartment_img {
-  cursor: pointer;
-}
-/*Navbar burger*/
-.close_navbar {
-  font-size: 30px;
-  color: rgb(0, 0, 0);
-}
-.open_navbar {
-  font-size: 30px;
-  color: rgb(0, 0, 0);
+.image_details {
+    box-shadow:  rgb(53, 54, 54) 10px 10px;
 }
 
-.search_icon:hover {
-  transform: scale(2);
-  transition: 0.3s ease-in-out;
-  margin-left: 15px !important;
+.date_text {
+    font-size: 14px !important;
+    font-style: italic;
 }
 
-.apartment_info {
-  border-radius: 20px !important;
+.note_message {
+    font-size: 15px;
+    font-style: italic;
 }
 
-/* ApartmentPagination */
-
- .paginationBttns {
-   width: 80%;
-   height: 40px;
-   margin-left: 40px;
-   margin-top: 20px;
-    list-style: none;
-   display: flex;
-   justify-content: center;
- padding-bottom: 60px;
-
+.likes_count,.comments_count {
+    font-size: 14px;
 }
 
-.paginationBttns a {
-  padding: 10px;
-  margin: 8px;
-  border: 1px solid black;
-  border-radius: 5px;
-  color: black;
-}
-.paginationBttns a:hover {
-  background-color: #ffffff;
- 
-}
-.previousBttn, .nextBttn {
-  text-decoration: none !important;
-}
-.activeBttn {
-  background-color: #ffffff;
-}
-.container_paginate {
-  padding-bottom: 60px;
+.send_icon:hover{
+    transform: translateX(5px);
+    transition: 0.2s ease-in-out;
 }
 
-.location_text {
-  font-weight: bold;
-}
+.bg_image {
+    background-size: cover !important;
 
-.list_border {
-  border: 1px solid black;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
-.img_border {
-  border: 1px;
-  box-shadow: rgb(49, 48, 48) 10px 9px,rgb(23,162,184) 20px 20px;
+.bg_text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+.bg_button {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-/* ReturnBttn */
-.return_bttn {
-  cursor: pointer;
 }
-
