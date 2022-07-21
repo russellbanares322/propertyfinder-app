@@ -11,16 +11,21 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase-config";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import React, { useState } from "react";
 
 function App() {
   const [user] = useAuthState(auth);
+  const [activeTab, setActiveTab] = useState("Home");
 
   return (
     <>
-      <PNavbar />
+      <PNavbar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home activeTab={activeTab} setActiveTab={setActiveTab} />}
+        />
         {user && (
           <>
             <Route path="/add" element={<AddProperty />} />
@@ -30,8 +35,14 @@ function App() {
         <Route path="/property/:id" element={<PropertyDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/property" element={<Property />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route
+          path="/login"
+          element={<Login activeTab={activeTab} setActiveTab={setActiveTab} />}
+        />
+        <Route
+          path="/signup"
+          element={<SignUp activeTab={activeTab} setActiveTab={setActiveTab} />}
+        />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>

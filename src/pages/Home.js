@@ -18,14 +18,15 @@ import {
 } from "react-bootstrap";
 import { auth, db } from "../firebase-config";
 import PropertyRate from "./PropertyRate";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import { BsShieldLock } from "react-icons/bs";
 const bgImage = new URL("/src/images/bgImage.jpg", import.meta.url);
 
-const Home = () => {
+const Home = ({ activeTab, setActiveTab }) => {
   const [property, setProperty] = useState([]);
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const propertyRef = collection(db, "PropertyDatabase");
@@ -39,6 +40,11 @@ const Home = () => {
     });
   }, []);
 
+  const handleActiveProperty = () => {
+    setActiveTab("Property");
+    navigate("/property");
+  };
+
   return (
     <>
       <Col sm={12}>
@@ -47,6 +53,7 @@ const Home = () => {
         <Button
           className="px-5 mt-3 text-white text-uppercase bg_button"
           variant="dark "
+          onClick={handleActiveProperty}
         >
           Find
         </Button>
@@ -71,8 +78,7 @@ const Home = () => {
               }) => (
                 <>
                   <Card
-                    border="dark"
-                    className="mx-2 p-3 my-5"
+                    className="mx-2 p-3 my-5 home_property_display"
                     style={{ width: "20rem" }}
                     key={id}
                   >
@@ -87,7 +93,11 @@ const Home = () => {
                         <Row>
                           <Col sm={8}>
                             <Link to={`/property/${id}`}>
-                              <Button variant="outline-info" size="sm">
+                              <Button
+                                variant="outline-info"
+                                size="sm"
+                                onClick={handleActiveProperty}
+                              >
                                 View Details
                               </Button>
                             </Link>
@@ -134,6 +144,56 @@ const Home = () => {
             )
           )}
         </Row>
+
+        <Col sm={12}>
+          <h1 className="text-center mt-5">What we make sure.</h1>
+          <Row>
+            <Col
+              className="d-flex justify-content-center mt-5 text-center"
+              sm={4}
+            >
+              <Card
+                className="border-dark p-4 d-flex justify-content-center"
+                style={{ width: "18rem", borderRadius: "10%" }}
+              >
+                <div className="d-flex justify-content-center">
+                  <BsShieldLock size={100} />
+                </div>
+                <Card.Body>
+                  <Card.Title>Security</Card.Title>
+                  <small>
+                    Making sure that the information that you've been posting is
+                    protected.
+                  </small>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className="d-flex justify-content-center mt-5" sm={4}>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                  <Card.Title>Card Title</Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col className="d-flex justify-content-center mt-5" sm={4}>
+              <Card style={{ width: "18rem" }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                  <Card.Title>Card Title</Card.Title>
+                  <Card.Text>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
       </Container>
     </>
   );

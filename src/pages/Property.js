@@ -56,7 +56,11 @@ const Property = () => {
           <Row>
             {property.length !== 0 ? (
               <Col sm={2} className="mt-5">
-                <Stack direction="horizontal" gap={1}>
+                <Stack
+                  className="d-flex justify-content-center"
+                  direction="horizontal"
+                  gap={1}
+                >
                   <div>
                     <h6>Filter Property</h6>
                   </div>
@@ -118,8 +122,7 @@ const Property = () => {
                     }) => (
                       <>
                         <Card
-                          border="dark"
-                          className="mx-2 p-3 my-5"
+                          className="mx-2 p-3 my-5 property_display"
                           style={{ width: "20rem" }}
                           key={id}
                         >
@@ -152,11 +155,9 @@ const Property = () => {
                                 </p>
                               </div>
                               <div>
-                                {comments && comments.length > 0 && (
-                                  <p className="comments_count">
-                                    {comments?.length} comments
-                                  </p>
-                                )}
+                                <p className="comments_count">
+                                  {comments?.length} comments
+                                </p>
                               </div>
                               <div className="ms-auto">
                                 {user && <PropertyRate id={id} likes={likes} />}

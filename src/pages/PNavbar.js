@@ -5,30 +5,61 @@ import { auth } from "../firebase-config";
 import { FaUserAlt } from "react-icons/fa";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
+import React, { useState } from "react";
 
-const PNavbar = () => {
+const PNavbar = ({ activeTab, setActiveTab }) => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
 
+  const handleActiveHome = () => {
+    navigate("/");
+    setActiveTab("Home");
+  };
+  const handleActiveProperty = () => {
+    navigate("/property");
+    setActiveTab("Property");
+  };
+  const handleActiveAbout = () => {
+    navigate("/about");
+    setActiveTab("About");
+  };
+
   return (
     <>
-      <Navbar bg="dark" expand="lg" className="p-4">
-        <Navbar.Brand className="text-white" onClick={() => navigate("/")}>
+      <Navbar bg="dark" expand="lg" className="p-4 nav">
+        <Navbar.Brand
+          className="text-white"
+          onClick={() => navigate("/")}
+          style={{ cursor: "pointer" }}
+        >
           Property Finder
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className="text-white" onClick={() => navigate("/")}>
+            <Nav.Link
+              className={`${
+                activeTab === "Home" ? "text-info a" : "text-white"
+              }`}
+              onClick={handleActiveHome}
+              active
+            >
               Home
             </Nav.Link>
             <Nav.Link
-              className="text-white"
-              onClick={() => navigate("/property")}
+              className={`${
+                activeTab === "Property" ? "text-info a" : "text-white"
+              }`}
+              onClick={handleActiveProperty}
             >
               Property
             </Nav.Link>
-            <Nav.Link className="text-white" onClick={() => navigate("/about")}>
+            <Nav.Link
+              className={`${
+                activeTab === "About" ? "text-info a" : "text-white"
+              }`}
+              onClick={handleActiveAbout}
+            >
               About
             </Nav.Link>
           </Nav>
@@ -36,7 +67,7 @@ const PNavbar = () => {
           {!user ? (
             <>
               <Nav.Link
-                className=" text-white btn btn-outline-info"
+                className=" text-white btn btn-outline-info a"
                 onClick={() => navigate("/login")}
               >
                 Login

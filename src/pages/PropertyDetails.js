@@ -1,11 +1,20 @@
 import { doc, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
-import { Badge, Col, Container, Image, Row, Stack } from "react-bootstrap";
+import {
+  Badge,
+  Button,
+  Col,
+  Container,
+  Image,
+  Row,
+  Stack,
+} from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import { auth, db } from "../firebase-config";
 import PropertyComment from "./PropertyComment";
 import PropertyRate from "./PropertyRate";
+import { BiMessageSquareAdd } from "react-icons/bi";
 
 const PropertyDetails = () => {
   const { id } = useParams();
@@ -25,6 +34,16 @@ const PropertyDetails = () => {
           <Col sm={12} className="mt-5">
             <h1 className="text-center">{property.propertyName}</h1>
           </Col>
+          {user && (
+            <>
+              <Col className="mt-4" sm={12}>
+                <Button className="text-dark px-2" variant="info">
+                  Appoint Owner
+                  <BiMessageSquareAdd className="pb-1 px-1" size={25} />
+                </Button>
+              </Col>
+            </>
+          )}
 
           <Col className="mt-5 mb-5" sm={12}>
             <Row>

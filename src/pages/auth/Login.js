@@ -6,7 +6,7 @@ import { auth } from "../../firebase-config";
 import { toast } from "react-toastify";
 
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-const Login = () => {
+const Login = ({ activeTab, setActiveTab }) => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -17,6 +17,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
+      setActiveTab("Home");
       toast.success("Successfully logged in!");
     } catch (error) {
       toast.error("Invalid username or password");
@@ -27,7 +28,7 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <Container className="mx-auto text-center d-flex justify-content-center">
+    <Container className="mx-auto text-center d-flex justify-content-center mt-5">
       <Col sm={6}>
         <Form className="border p-5 bg-dark text-white">
           <h3 className="text-center">User Login</h3>

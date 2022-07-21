@@ -6,7 +6,7 @@ import { auth } from "../../firebase-config";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const SignUp = () => {
+const SignUp = ({ activeTab, setActiveTab }) => {
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -18,6 +18,7 @@ const SignUp = () => {
       await createUserWithEmailAndPassword(auth, email, password);
       updateProfile(auth.currentUser, { displayName: name });
       navigate("/");
+      setActiveTab("Home");
       toast.success("Successfully created account!");
     } catch (error) {
       toast.error("Invalid username or password");
@@ -30,7 +31,7 @@ const SignUp = () => {
   };
 
   return (
-    <Container className="mx-auto text-center d-flex justify-content-center">
+    <Container className="mx-auto text-center d-flex justify-content-center mt-5">
       <Col sm={6}>
         <Form className="border p-5 bg-dark text-white">
           <h3 className="text-center">Create an Account</h3>
