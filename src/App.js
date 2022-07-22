@@ -15,7 +15,7 @@ import React, { useState } from "react";
 
 function App() {
   const [user] = useAuthState(auth);
-  const [activeTab, setActiveTab] = useState("Home");
+  const [activeTab, setActiveTab] = useState("");
 
   return (
     <>

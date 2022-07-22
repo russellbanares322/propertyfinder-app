@@ -34,7 +34,7 @@ const DeleteProperty = ({ id, imageUrl }) => {
 
   return (
     <>
-      <Button className="mt-5" variant="danger" onClick={handleShowDelete}>
+      <Button className="mt-5 " variant="danger" onClick={handleShowDelete}>
         Delete
       </Button>
       <>

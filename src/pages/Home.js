@@ -20,7 +20,11 @@ import { auth, db } from "../firebase-config";
 import PropertyRate from "./PropertyRate";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { BsShieldLock } from "react-icons/bs";
+import {
+  BsFillShieldLockFill,
+  BsHouseFill,
+  BsFillGearFill,
+} from "react-icons/bs";
 const bgImage = new URL("/src/images/bgImage.jpg", import.meta.url);
 
 const Home = ({ activeTab, setActiveTab }) => {
@@ -59,7 +63,9 @@ const Home = ({ activeTab, setActiveTab }) => {
         </Button>
       </Col>
       <Container>
-        <h1 className="text-center mt-5">Featured Properties</h1>
+        <h1 className="text-center mt-5 text-uppercase underline_featured">
+          Featured Properties
+        </h1>
         <Row className="mt-4 d-flex justify-content-center">
           {property.length === 0 ? (
             <h1 className="text-center" style={{ marginLeft: "50px" }}>
@@ -78,7 +84,7 @@ const Home = ({ activeTab, setActiveTab }) => {
               }) => (
                 <>
                   <Card
-                    className="mx-2 p-3 my-5 home_property_display"
+                    className="mx-4 p-3 my-5 home_property_display"
                     style={{ width: "20rem" }}
                     key={id}
                   >
@@ -144,20 +150,23 @@ const Home = ({ activeTab, setActiveTab }) => {
             )
           )}
         </Row>
-
+      </Container>
+      <Container className="bg-dark p-3 mt-5" fluid>
         <Col sm={12}>
-          <h1 className="text-center mt-5">What we make sure.</h1>
+          <h1 className="text-center my-5 text-uppercase underline_sure text-white">
+            What we make sure
+          </h1>
           <Row>
             <Col
-              className="d-flex justify-content-center mt-5 text-center"
+              className="d-flex justify-content-center mt-5 text-center pb-5"
               sm={4}
             >
               <Card
-                className="border-dark p-4 d-flex justify-content-center"
+                className="border-white p-4 d-flex justify-content-center"
                 style={{ width: "18rem", borderRadius: "10%" }}
               >
                 <div className="d-flex justify-content-center">
-                  <BsShieldLock size={100} />
+                  <BsFillShieldLockFill className="security_icon" size={150} />
                 </div>
                 <Card.Body>
                   <Card.Title>Security</Card.Title>
@@ -168,31 +177,43 @@ const Home = ({ activeTab, setActiveTab }) => {
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="d-flex justify-content-center mt-5" sm={4}>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
+            <Col className="d-flex justify-content-center mt-5 pb-5" sm={4}>
+              <Card
+                className="border-dark p-4 d-flex justify-content-center  "
+                style={{ width: "18rem", borderRadius: "10%" }}
+              >
+                <div className="d-flex justify-content-center">
+                  <BsHouseFill className="home_icon" size={150} />
+                </div>
+                <Card.Body className="text-center">
+                  <Card.Title>Quality</Card.Title>
+                  <small>Good quality property is what we offer you.</small>
                 </Card.Body>
               </Card>
             </Col>
-            <Col className="d-flex justify-content-center mt-5" sm={4}>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
+            <Col className="d-flex justify-content-center mt-5 pb-5" sm={4}>
+              <Card
+                className="border-dark p-4 d-flex justify-content-center  "
+                style={{ width: "18rem", borderRadius: "10%" }}
+              >
+                <div className="d-flex justify-content-center">
+                  <BsFillGearFill className="gear_icon" size={150} />
+                </div>
+                <Card.Body className="text-center">
+                  <Card.Title>Scalability</Card.Title>
+                  <small>
+                    We hear your feedback, to make sure that the website is
+                    functional.
+                  </small>
                 </Card.Body>
               </Card>
             </Col>
           </Row>
+        </Col>
+      </Container>
+      <Container>
+        <Col sm={12}>
+          <h1 className="text-center mt-5 text-uppercase">Get in touch</h1>
         </Col>
       </Container>
     </>

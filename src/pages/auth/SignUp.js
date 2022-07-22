@@ -78,7 +78,7 @@ const SignUp = ({ activeTab, setActiveTab }) => {
             style={{ cursor: "pointer" }}
             onClick={() => navigate("/login")}
           >
-            <i>Already have an account? Login.</i>
+            <i>Already have an account? </i>
           </small>
         </Form>
       </Col>

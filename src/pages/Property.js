@@ -26,10 +26,11 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { BsFilterLeft } from "react-icons/bs";
 
-const Property = () => {
+const Property = ({ filterLaguna, setFilterLaguna }) => {
   const [user] = useAuthState(auth);
   const [property, setProperty] = useState([]);
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const propertyRef = collection(db, "PropertyDatabase");
@@ -72,9 +73,12 @@ const Property = () => {
                   <Form className=" mt-4">
                     <Form.Control
                       type="search"
-                      placeholder="Search"
+                      placeholder="Search..."
                       className="me-2"
                       aria-label="Search"
+                      onChange={(e) => {
+                        setSearchTerm(e.target.value);
+                      }}
                     />
                   </Form>
                 </div>
@@ -92,7 +96,7 @@ const Property = () => {
                     <option>All</option>
                     <option value="Muntinlupa">Muntinlupa</option>
                     <option value="Alabang">Alabang</option>
-                    <option value="3">Cupang</option>
+                    <option value="Laguna">Laguna</option>
                   </Form.Select>
                 </div>
               </Col>
@@ -107,122 +111,150 @@ const Property = () => {
                     No property added yet.
                   </h1>
                 ) : (
-                  property.map(
-                    ({
-                      id,
-                      propertyName,
-                      propertyLocation,
-                      imageUrl,
-                      createdAt,
-                      createdBy,
-                      userId,
-                      likes,
-                      propertyPrice,
-                      comments,
-                    }) => (
-                      <>
-                        <Card
-                          className="mx-2 p-3 my-5 property_display"
-                          style={{ width: "20rem" }}
-                          key={id}
-                        >
-                          <Card.Img
-                            className="py-2"
-                            variant="center"
-                            src={imageUrl}
-                            fluid
-                          />
-                          <Card.Body>
-                            <Col sm={12}>
-                              <Row>
-                                <Col sm={8}>
-                                  <Link to={`/property/${id}`}>
-                                    <Button variant="outline-info" size="sm">
-                                      View Details
-                                    </Button>
-                                  </Link>
-                                </Col>
-                              </Row>
-                            </Col>
-                            <Stack
-                              className="mt-3"
-                              direction="horizontal"
-                              gap={3}
-                            >
-                              <div>
-                                <p className="likes_count">
-                                  {likes?.length} rates
-                                </p>
-                              </div>
-                              <div>
-                                <p className="comments_count">
-                                  {comments?.length} comments
-                                </p>
-                              </div>
-                              <div className="ms-auto">
-                                {user && <PropertyRate id={id} likes={likes} />}
-                              </div>
-                            </Stack>
-
-                            <hr />
-                            <Card.Title className="mb-1 text-center">
-                              {propertyName}
-                            </Card.Title>
-                            <hr />
-                            <Stack
-                              className="mt-1 d-flex justify-content-center"
-                              direction="horizontal"
-                              gap={5}
-                            >
-                              <div>
-                                <Card.Text>
-                                  ₱{propertyPrice.toLocaleString()}
-                                </Card.Text>
-                              </div>
-                              <div>
-                                <Card.Text>{propertyLocation}</Card.Text>
-                              </div>
-                            </Stack>
-
-                            <hr />
-                            {createdBy && (
-                              <>
-                                <h6 className="mt-1">
-                                  <Badge pill bg="dark">
-                                    {createdBy}
-                                  </Badge>
-                                </h6>
-                              </>
-                            )}
-
-                            {user && user.uid === userId && (
+                  property
+                    .filter((val) => {
+                      if (searchTerm === "") {
+                        return val;
+                      } else if (
+                        val.propertyName
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) ||
+                        val.propertyLocation
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) ||
+                        val.propertyPrice
+                          .toLocaleString()
+                          .includes(searchTerm.toLocaleString())
+                      ) {
+                        return val;
+                      } else if (searchTerm > 0) {
+                        <h1>No results found</h1>;
+                      }
+                    })
+                    .map(
+                      ({
+                        id,
+                        propertyName,
+                        propertyLocation,
+                        imageUrl,
+                        createdAt,
+                        createdBy,
+                        userId,
+                        likes,
+                        propertyPrice,
+                        comments,
+                      }) => (
+                        <>
+                          <Card
+                            className="mx-2 p-3 my-5 property_display border-info"
+                            style={{ width: "20rem" }}
+                            key={id}
+                          >
+                            <Card.Img
+                              className="py-2"
+                              variant="center"
+                              src={imageUrl}
+                              fluid
+                            />
+                            <Card.Body>
+                              <Col sm={12}>
+                                <Row>
+                                  <Col sm={8}>
+                                    <Link to={`/property/${id}`}>
+                                      <Button
+                                        variant="outline-info text-dark"
+                                        size="sm"
+                                      >
+                                        View Details
+                                      </Button>
+                                    </Link>
+                                  </Col>
+                                </Row>
+                              </Col>
                               <Stack
-                                className="d-flex justify-content-center"
+                                className="mt-3"
                                 direction="horizontal"
                                 gap={3}
                               >
                                 <div>
-                                  <Button
-                                    className="mt-5 text-white"
-                                    variant="info"
-                                    onClick={() => navigate(`/edit/${id}`)}
-                                  >
-                                    Update
-                                  </Button>
+                                  <p className="likes_count">
+                                    {likes?.length} rates
+                                  </p>
                                 </div>
                                 <div>
-                                  <DeleteProperty id={id} imageUrl={imageUrl} />
+                                  <p className="comments_count">
+                                    {comments?.length} comments
+                                  </p>
+                                </div>
+                                <div className="ms-auto">
+                                  {user && (
+                                    <PropertyRate id={id} likes={likes} />
+                                  )}
                                 </div>
                               </Stack>
-                            )}
-                          </Card.Body>
-                          <Card.Footer className="text-muted">
-                            <small>{createdAt.toDate().toDateString()}</small>
-                          </Card.Footer>
-                        </Card>
-                      </>
+
+                              <hr />
+                              <Card.Title className="mb-1 text-center">
+                                {propertyName}
+                              </Card.Title>
+                              <hr />
+                              <Stack
+                                className="mt-1 d-flex justify-content-center"
+                                direction="horizontal"
+                                gap={5}
+                              >
+                                <div>
+                                  <Card.Text>
+                                    ₱{propertyPrice.toLocaleString()}
+                                  </Card.Text>
+                                </div>
+                                <div>
+                                  <Card.Text>{propertyLocation}</Card.Text>
+                                </div>
+                              </Stack>
+
+                              <hr />
+                              {createdBy && (
+                                <>
+                                  <h6 className="mt-1">
+                                    <Badge pill bg="dark">
+                                      {createdBy}
+                                    </Badge>
+                                  </h6>
+                                </>
+                              )}
+
+                              {user && user.uid === userId && (
+                                <Stack
+                                  className="d-flex justify-content-center"
+                                  direction="horizontal"
+                                  gap={3}
+                                >
+                                  <div>
+                                    <Button
+                                      className="mt-5 text-white"
+                                      variant="info"
+                                      onClick={() => navigate(`/edit/${id}`)}
+                                    >
+                                      Update
+                                    </Button>
+                                  </div>
+                                  <div>
+                                    <DeleteProperty
+                                      id={id}
+                                      imageUrl={imageUrl}
+                                    />
+                                  </div>
+                                </Stack>
+                              )}
+                            </Card.Body>
+                            <Card.Footer className="text-muted">
+                              <small>{createdAt.toDate().toDateString()}</small>
+                            </Card.Footer>
+                          </Card>
+                        </>
+                      )
                     )
-                  )
                 )}
               </Row>
             </Col>

@@ -64,10 +64,21 @@ const Login = ({ activeTab, setActiveTab }) => {
           </Button>
           <br />
           <small
-            style={{ cursor: "pointer" }}
+            style={{
+              fontSize: "13px",
+              color: "white",
+              fontStyle: "italic",
+              cursor: "pointer",
+            }}
+          >
+            forgot password?
+          </small>
+          <br />
+          <small
+            style={{ cursor: "pointer", fontStyle: "italic" }}
             onClick={() => navigate("/signup")}
           >
-            <i>Don't have an account ? Create one.</i>
+            Don't have an account ? Create one.
           </small>
         </Form>
       </Col>
