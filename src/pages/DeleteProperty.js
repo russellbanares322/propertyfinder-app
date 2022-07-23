@@ -40,9 +40,7 @@ const DeleteProperty = ({ id, imageUrl }) => {
       <>
         <Modal show={modalShowDelete} onHide={modalShowDelete}>
           <Modal.Header closeButton onClick={handleCloseModal}>
-            <Modal.Title style={{ textAlign: "center" }}>
-              Are you sure?
-            </Modal.Title>
+            <Modal.Title className="ms-auto">Are you sure?</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             Do you really want to delete this record? This process cannot be

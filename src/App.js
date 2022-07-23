@@ -12,6 +12,7 @@ import { auth } from "./firebase-config";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import React, { useState } from "react";
+import UserDashboard from "./pages/UserDashboard";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -28,8 +29,17 @@ function App() {
         />
         {user && (
           <>
-            <Route path="/add" element={<AddProperty />} />
+            <Route
+              path="/add"
+              element={
+                <AddProperty
+                  activeTab={activeTab}
+                  setActiveTab={setActiveTab}
+                />
+              }
+            />
             <Route path="/edit/:id" element={<AddProperty />} />
+            <Route path="/dashboard" element={<UserDashboard />} />
           </>
         )}
         <Route path="/property/:id" element={<PropertyDetails />} />

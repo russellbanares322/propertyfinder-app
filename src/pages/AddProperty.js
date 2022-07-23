@@ -137,7 +137,7 @@ const AddProperty = () => {
               .then(() => {
                 toast.info("Successfully Updated Property!");
                 setProgress(0);
-                navigate("/property");
+                navigate("/dashboard");
               })
               .catch((err) => {
                 toast.error("Failed to update property, please try again.");

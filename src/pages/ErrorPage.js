@@ -8,7 +8,7 @@ const ErrorPage = () => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
   return (
-    <Container className="text-center">
+    <Container className="text-center mt-5">
       <Alert variant="danger">
         <div className="p-5">
           <h1>
@@ -16,7 +16,12 @@ const ErrorPage = () => {
               ? "You are accessing a non existing page!"
               : "You need to login to access this page!"}
           </h1>
-          <Button className="mt-5" variant="dark" onClick={() => navigate("/")}>
+
+          <Button
+            className="mt-5 px-3"
+            variant="dark"
+            onClick={() => navigate("/")}
+          >
             Return to home
           </Button>
         </div>

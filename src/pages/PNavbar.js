@@ -23,6 +23,10 @@ const PNavbar = ({ activeTab, setActiveTab }) => {
     navigate("/about");
     setActiveTab("About");
   };
+  const handleActiveDashboard = () => {
+    navigate("/dashboard");
+    setActiveTab("Dashboard");
+  };
 
   return (
     <>
@@ -61,6 +65,14 @@ const PNavbar = ({ activeTab, setActiveTab }) => {
               onClick={handleActiveAbout}
             >
               About
+            </Nav.Link>
+            <Nav.Link
+              className={`${
+                activeTab === "Dashboard" ? "text-info a" : "text-white"
+              }`}
+              onClick={handleActiveDashboard}
+            >
+              Dashboard
             </Nav.Link>
           </Nav>
 

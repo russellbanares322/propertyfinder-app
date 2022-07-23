@@ -82,6 +82,20 @@
     transition: 0.3s;
 }
 
+.d{
+    position: relative;
+}
+.d:after {
+    content: "";
+    position: absolute;
+    background-color: rgb(19,181,208);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -0.1px;
+    transition: 0.3s;
+}
+
 .a:hover:after {
     width: 100%;
 }
@@ -117,6 +131,34 @@
     left: 40%;
     bottom: 0;  
 }
+.underline_dashboard {
+    position: relative;
+    padding-bottom: 1px;
+
+}
+.underline_dashboard::after {
+    content: "";
+    height: 3px;
+    width: 11%;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    left: 45%;
+    bottom: 0;  
+}
+.underline_available {
+    position: relative;
+    padding-bottom: 6px;
+
+}
+.underline_available::after {
+    content: "";
+    height: 3px;
+    width: 15%;
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    left: 43%;
+    bottom: 0;  
+}
 
 .gear_icon:hover {
     transform: rotate(-90deg);
@@ -146,3 +188,4 @@
     transform: translateX(10px);
     transition: 0.5s ease-in-out;
 }
+
